@@ -98,6 +98,8 @@
                                 <strong>First things first! Go ahead and publish the DB and get the website connection string updated.</strong>
                             </p>
 
+                            <p><a href = "~/PageToSync/artistDetails.aspx" runat="server" id="artistPage">Visit our Artist Page</a></p>
+
                             <ul runat="server" id="items">
                                 <asp:Repeater runat="server" ID="assessmentItems">
                                     <ItemTemplate>

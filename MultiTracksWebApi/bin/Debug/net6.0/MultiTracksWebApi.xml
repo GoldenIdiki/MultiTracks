@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MultiTracksWebApi</name>
+    </assembly>
+    <members>
+        <member name="M:MultiTracksWebApi.Controllers.ArtistController.Search(System.String)">
+             <summary>
+             Gets artist by name from the database
+             </summary>
+             <param name="name"></param>
+             <remarks>
+             Sample request:
+            
+                 Get /api.multitracks.com/artist/search?name=golden
+             </remarks>
+             <returns code="200">Artists that matches the input parameter</returns>
+             <response code="200">Returns 200 and the the Artist type</response>
+             <response code="500">Returns 500 if a system error occurred while running the query</response>
+        </member>
+        <member name="M:MultiTracksWebApi.Controllers.ArtistController.AddArtist(MultiTracksWebApi.Requests.ArtistRequest)">
+             <summary>
+             Adds a new artist to the database
+             </summary>
+             <param name="request"></param>
+             <remarks>
+             Sample request:
+            
+                 Post /api.multitracks.com/artist/add
+             </remarks>
+             <returns code="200">Artists was created successfully</returns>
+             <response code="200">Returns 200 and the number of rows affected by the operation</response>
+             <response code="500">Returns 500 if a system error occurred while running the query</response>
+        </member>
+        <member name="M:MultiTracksWebApi.Controllers.SongController.GetSongs(System.Int32,System.Int32)">
+             <summary>
+             Gets songs from the database and adds pagination to it.&#xA;
+             If you input a page size that is more than 50, then 50 will be used as page size.
+             In that case ExpectedPageSize will be what you inputted but ActualPageSize will be 50
+             </summary>
+             <param name="pageNumber"></param>
+             <param name="pageSize"></param>
+             <remarks>
+             Sample request:
+            
+                 Get /api.multitracks.com/song/list?pageNumber=1&amp;pageSize=10
+             </remarks>
+             <returns code="200">For a successful pagination of the data gotten</returns>
+             <response code="200">Returns 200 and the paginated data according to the inputted page number and inputted page size</response>
+             <response code="500">Returns 500 if a system error occurred while running the query</response>
+        </member>
+    </members>
+</doc>

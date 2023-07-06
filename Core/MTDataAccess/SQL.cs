@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -17,8 +18,8 @@ namespace DataAccess
 		private bool autoOpen = false;
 
 		public int Timeout = 30;
-
-		private string connectionString = "";
+        private readonly IConfiguration _configuration;
+        private string connectionString = "";
 
 		public SQL(int timeout)
 			: this("admin")
@@ -26,7 +27,14 @@ namespace DataAccess
 			Timeout = timeout;
 		}
 
-		public SQL()
+        public SQL(int timeout, IConfiguration configuration)
+        {
+            Timeout = timeout;
+            _configuration = configuration;
+            connectionString = configuration["ConnectionStrings:admin"];
+        }
+
+        public SQL()
 			: this("admin")
 		{
 		}
